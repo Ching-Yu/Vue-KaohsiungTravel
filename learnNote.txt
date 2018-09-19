@@ -1,0 +1,68 @@
+9/16:
+
+1.內層元素寬度超過父元件會使得在移動端旁邊有空白.
+
+2.使用:
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    達到將超過得字限制在兩行.
+    
+3.el-select搭配el-option更改value值及使用v-if達到過濾資料zone的效果.
+
+
+9/17:
+
+1.使用el-checkbox搭配Vue的computed使用出過濾效果
+
+  免費參觀及全天候開放各綁訂一個check
+  
+  v-for="item in recordsFilter" //recordsFilter設定在computed
+
+  computed:{
+    recordsFilter(){
+      if(this.check1 && !this.check2 && this.value!= '全部'){
+        return this.records.filter(item => item.Ticketinfo == '免費參觀' && item.Zone == this.value );
+      }
+      else if(this.check2 && !this.check1 && this.value!= '全部'){
+        return this.records.filter(item => item.Opentime == '全天候開放'&& item.Zone == this.value );
+      }
+      else if(this.check1 && this.check2 && this.value!= '全部'){
+        return this.records.filter(item => item.Ticketinfo == '免費參觀' && item.Opentime == '全天候開放' && item.Zone == this.value);
+      }
+      else if(!this.check1 && !this.check2 && this.value!= '全部'){
+        return this.records.filter(item => item.Zone == this.value);
+      }
+      else if(this.check1 && !this.check2 && this.value == '全部'){
+        return this.records.filter(item => item.Ticketinfo == '免費參觀');
+      }
+      else if(!this.check1 && this.check2 && this.value == '全部'){
+        return this.records.filter(item => item.Opentime == '全天候開放');
+      }
+      else if(this.check1 && this.check2 && this.value == '全部'){
+        return this.records.filter(item => item.Opentime == '全天候開放' && item.Ticketinfo == '免費參觀');
+      }
+      else{
+        return this.records;
+      }
+    }
+
+  2.出現<transition-group> children must be keyed: <div> 可能是因為下面的v-for :key所綁訂的值為undefined.
+
+
+  9/18
+
+  1.將button與check值做綁訂和設定click事件
+   <button class="btn btn-outline-primary" v-if="check1 == true">免費參觀<i class="pl-2 far fa-times-circle" @click="check1 = false"></i></button>
+   <button class="btn btn-outline-primary" v-if="check2 == true">全天候開放<i class="pl-2 far fa-times-circle" @click="check2 = false"></i></button>
+
+
+   2.設定低於767px時,flex方向改為垂直:
+    flex-direction: column;
+
+   3.高於平板寬度時(767px) 將img設為固定寬高
+     低於平板寬度時,將img設為寬度100%, 高度固定
+
+   4.img及右邊資訊欄接加上box-shadow效果.

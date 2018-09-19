@@ -1,0 +1,233 @@
+@import '~bootstrap/scss/bootstrap'; 
+@import '../node_modules/animate.css/animate.css';
+$orange: #f56040;
+$blue : #405de6;
+
+*{
+  font-family: Microsoft JhengHei;
+  letter-spacing: 1px;
+}
+i{
+  font-family: "Font Awesome 5 Free";
+}
+#header{
+  height: 92px;
+  background: $orange;
+  .container{
+    max-width: 1200px;
+    height: 100%;
+    .row{
+      height: 100%;
+    }
+    .col-sm-3{
+      div{
+        text-align: center;
+        line-height: 92px;
+        a{
+          text-decoration: none;
+          font-family: Optima-ExtraBlack;
+          font-size: 36px;
+          color: #FFFFFF;
+        }
+      }
+    }
+    .col-sm-9{
+      div.input-out{
+        line-height: 92px;
+        padding-left: 38px;
+        span.input{
+          border-bottom: 1px solid #FFFFFF;
+          padding-bottom: 10px;
+            i{
+              font-weight: 600;
+              color: white;
+              padding-right: 15px;
+            }
+            input{
+            // width: 388px;
+            height: 44px;
+            font-family: Roboto-Italic;
+            font-size: 20px;
+            background: transparent;
+            border: 0;
+            color: rgba(255,255,255,0.50);
+              &:focus{
+                outline: 0;
+              }
+          }
+        }
+      }
+    }
+  }
+}
+#main-section{
+    background: #F1F5FB;
+    button.btn.btn-outline-primary{
+    border-color: $orange;
+    padding: 5px 15px;
+    border-radius: 15px;
+    color: $orange ;
+    font-family: Roboto-Italic;
+    font-size: 16px;
+    i{
+      &:hover{
+        color: #405de6
+      }
+    }
+    &:hover{
+      transition: all linear .2s;
+      color: white;
+      background: $orange;
+    }
+  }
+  .col-md-4{
+    background: #EBEBEB;
+  }
+  .col-12.col-md-8{
+    padding-left: 30px;
+  }
+  .col-lg-8{
+    padding-top: 20px;
+    box-shadow: 0 0 1px 1px lightgrey;
+  }
+  .data-box{
+      img{
+        height: 220px;
+        box-shadow: 0 0 1px 1px lightgrey;
+      }
+      .col-sm-6{
+        background: white;
+        h4{
+          font-weight: 700;
+          color: $orange;
+        }
+        div.detail{
+          color: #9B9B9B;
+      }
+      span.zone{
+        color: grey;
+      }
+      div.py-2{
+        font-size:14px;
+      }
+      span.opentime{
+        font-size: 14px;
+        color: #333;
+        font-size: 14px;
+        color: #333;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+      }
+        span.categories{
+          display: inline-block;
+          color: #FFFFFF;
+          background: $blue;
+          padding: 3px 10px;
+          border-radius: 15px;
+          font-size: 15px;
+          letter-spacing: 1px;
+        }
+    }
+    span.demonstration{
+      width: 30px;
+      margin-right: 10px;
+      text-align: right;
+    }
+    h3.mt-4{
+      font-size: 24px;
+      color: #000000;
+      span{
+        font-family: Roboto-Bold;
+        font-size: 24px;
+        color: $orange;
+        line-height: 28px;
+      }
+    }
+  }
+  p.description{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  //transition
+  .fade-enter-active, .fade-leave-active{
+      transition: all 1s;
+  }
+
+  .fade-enter, .fade-leave-to{
+    transition: all 1s;
+    opacity: 0 ;
+  }
+  span.filterLength{
+    color: $orange;
+  }
+  .shadow-box{
+    box-shadow: 0px 0px 1px 1px lightgrey;
+  }
+  .data-box .col-sm-6.img-box{
+    background: transparent;
+  }
+}
+
+@media(max-width: 576px){
+  #main-section .data-box{
+    img{
+      box-shadow: 0 0 1px 1px lightgrey;
+      width: 100%;
+      height: 220px;
+    }
+  }
+  .top-box{
+    text-align: center;
+  }
+  div.location,h3.mt-4{
+    text-align: center;
+  }
+  #main-section .col-12.col-md-8{
+    padding-left: 15px!important;
+  }
+}
+
+@media (max-width: 767px){
+  .data-box{
+    padding: 20px;
+  }
+  
+  .data-box.d-flex{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #main-section .data-box .col-sm-6{
+    text-align: center!important;
+  }
+}
+
+@media (max-width: 1339px){
+  .data-box.d-flex{
+    h4{
+      padding-top: 10px;
+    }
+    .col-lg-8{
+      padding-bottom: 15px;
+      .my-3{
+        margin: 0!important;
+      }
+    }
+  }
+}
+
+@media(min-width: 1440px){
+  #main-section .data-box{
+    img{
+      max-width: 220px;
+      height: 220px;
+      box-shadow: 0 0 1px 1px lightgrey;
+    }
+  }
+}
